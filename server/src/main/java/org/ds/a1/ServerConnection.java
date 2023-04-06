@@ -8,6 +8,7 @@ import java.net.Socket;
  * ClassName: ServerConnection
  * Package: org.ds.a1
  * @Author Shiqiang Ren
+ * @StudentID 1348968
  * @Create 22/3/2023 8:24 pm
  * @Version 1.0
  */

@@ -12,6 +12,7 @@ import java.util.LinkedList;
  * ClassName: ClientConnection
  * Package: org.ds.a1
  * @Author Shiqiang Ren
+ * @StudentID 1348968
  * @Create 22/3/2023 6:02 pm
  * @Version 1.0
  */
