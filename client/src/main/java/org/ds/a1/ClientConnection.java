@@ -83,7 +83,13 @@ public class ClientConnection extends Thread{
     }
 
     public  JSONObject getResult() {
-        return result;
+        if(result != null){
+            return result;
+        }else{
+            JSONObject json = new JSONObject();
+            json.put("status", 2);
+            return json;
+        }
     }
 
     public void setStatus(Boolean status) {

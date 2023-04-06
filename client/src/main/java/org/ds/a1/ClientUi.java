@@ -102,7 +102,7 @@ public class ClientUi {
                                 wordTextField.setText("");
                                 meaningsTextArea.setText("");
                             } else {
-                                System.out.println("SERVER RESPONDS ERROR");
+                                System.out.println("SERVER RESPONDS ERROR！");
                             }
                         } catch (InterruptedException ex) {
                             System.out.println(ex.getMessage());
