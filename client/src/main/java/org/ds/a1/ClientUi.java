@@ -132,8 +132,6 @@ public class ClientUi {
                                 meaningsTextArea.setText("");
                             } else if ((Integer) respond.get("status") == 0) {
                                 JOptionPane.showMessageDialog(panelMain,respond.get("info") );
-                                wordTextField.setText("");
-                                meaningsTextArea.setText("");
                             } else {
                                 System.out.println("SERVER RESPONDS ERROR");
                             }
@@ -166,8 +164,6 @@ public class ClientUi {
                                 JOptionPane.showMessageDialog(panelMain,respond.get("info") );
                             } else if ((Integer) respond.get("status") == 0) {
                                 JOptionPane.showMessageDialog(panelMain,respond.get("info") );
-                                wordTextField.setText("");
-                                meaningsTextArea.setText("");
                             } else {
                                 System.out.println("SERVER RESPONDS ERROR");
                             }
