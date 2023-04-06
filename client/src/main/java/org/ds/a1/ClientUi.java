@@ -67,7 +67,8 @@ public class ClientUi {
                             } else if ((Integer) respond.get("status") == 0) {
                                 JOptionPane.showMessageDialog(panelMain,respond.get("info") );
                             } else {
-                                System.out.println("SERVER RESPONDS ERROR");
+                                JOptionPane.showMessageDialog(panelMain,respond.get("Server responds error!\nProgramme will exit!\nPlease try again later!") );
+                                System.exit(0);
                             }
                         } catch (InterruptedException ex) {
                             System.out.println(ex.getMessage());
@@ -102,7 +103,8 @@ public class ClientUi {
                                 wordTextField.setText("");
                                 meaningsTextArea.setText("");
                             } else {
-                                System.out.println("SERVER RESPONDS ERROR！");
+                                JOptionPane.showMessageDialog(panelMain,respond.get("Server responds error!\nProgramme will exit!\nPlease try again later!") );
+                                System.exit(0);
                             }
                         } catch (InterruptedException ex) {
                             System.out.println(ex.getMessage());
@@ -133,7 +135,8 @@ public class ClientUi {
                             } else if ((Integer) respond.get("status") == 0) {
                                 JOptionPane.showMessageDialog(panelMain,respond.get("info") );
                             } else {
-                                System.out.println("SERVER RESPONDS ERROR");
+                                JOptionPane.showMessageDialog(panelMain,respond.get("Server responds error!\nProgramme will exit!\nPlease try again later!") );
+                                System.exit(0);
                             }
                         } catch (InterruptedException ex) {
                             System.out.println(ex.getMessage());
@@ -165,7 +168,8 @@ public class ClientUi {
                             } else if ((Integer) respond.get("status") == 0) {
                                 JOptionPane.showMessageDialog(panelMain,respond.get("info") );
                             } else {
-                                System.out.println("SERVER RESPONDS ERROR");
+                                JOptionPane.showMessageDialog(panelMain,respond.get("Server responds error!\nProgramme will exit!\nPlease try again later!") );
+                                System.exit(0);
                             }
                         } catch (InterruptedException ex) {
                             System.out.println(ex.getMessage());
