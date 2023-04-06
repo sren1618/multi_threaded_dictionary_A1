@@ -24,8 +24,8 @@ public class ServerDictionary {
     public static boolean readJsonFile(String filename) throws IOException{
         dictionaryFilename = filename;
         String jsonStr = "";
-        //File jsonFile = new File("./server/"+dictionaryFilename);
-        File jsonFile = new File("./"+dictionaryFilename);
+        File jsonFile = new File("./server/"+dictionaryFilename);
+        //File jsonFile = new File("./"+dictionaryFilename);
         FileReader fileReader = new FileReader(jsonFile);
         Reader reader = new InputStreamReader(new FileInputStream(jsonFile),"utf-8");
         int ch = 0;

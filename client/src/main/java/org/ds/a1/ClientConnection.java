@@ -3,6 +3,7 @@ package org.ds.a1;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -69,7 +70,13 @@ public class ClientConnection extends Thread{
             } catch (UnknownHostException e) {
                 System.out.println(e.getMessage());
             } catch (IOException e) {
-                System.out.println(e.getMessage());
+                if (e.getMessage().equals("Connection reset")) {
+                    System.out.println("Server has shut down!");
+                    System.out.println("Programme will exit!");
+                    System.exit(0);
+                } else {
+                    System.err.println("IO error occurred: " + e.getMessage());
+                }
             } finally {
                 try {
                     if (socket != null)

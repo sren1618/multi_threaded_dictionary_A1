@@ -236,6 +236,7 @@ public class ClientUi {
             System.exit(0);
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            System.exit(0);
         }
     }
 }
