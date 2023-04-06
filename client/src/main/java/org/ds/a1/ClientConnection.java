@@ -3,11 +3,12 @@ package org.ds.a1;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 
-import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * ClassName: ClientConnection
@@ -24,6 +25,7 @@ public class ClientConnection extends Thread{
     private  JSONObject result;
     private  Boolean status = true;
     Socket socket;
+    int seconds = 5;
 
     public ClientConnection(Socket socket) {
         this.socket = socket;
@@ -47,7 +49,13 @@ public class ClientConnection extends Thread{
                             // receive data
                             String response = reader.readLine();
                             System.out.println("Received response from server: " + response);
-                            this.result = JSON.parseObject(response);
+                            if(response != null){
+                                this.result = JSON.parseObject(response);
+                            }else{
+                                JSONObject json = new JSONObject();
+                                json.put("status", 2);
+                                this.result = json;
+                            }
                             this.notify();
                         }
                     }
@@ -72,8 +80,19 @@ public class ClientConnection extends Thread{
             } catch (IOException e) {
                 if (e.getMessage().equals("Connection reset")) {
                     System.out.println("Server has shut down!");
-                    System.out.println("Programme will exit!");
-                    System.exit(0);
+                    System.out.println("Programme will exit in 5 seconds!");
+                    Timer timer = new Timer();
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        public void run() {
+                            if (seconds == 0) {
+                                timer.cancel();
+                                System.exit(0);
+                            } else {
+                                System.out.println(seconds + " s");
+                                seconds--;
+                            }
+                        }
+                    }, 0, 1000);
                 } else {
                     System.err.println("IO error occurred: " + e.getMessage());
                 }
@@ -90,13 +109,7 @@ public class ClientConnection extends Thread{
     }
 
     public  JSONObject getResult() {
-        if(result != null){
-            return result;
-        }else{
-            JSONObject json = new JSONObject();
-            json.put("status", 2);
-            return json;
-        }
+        return result;
     }
 
     public void setStatus(Boolean status) {
