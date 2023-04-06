@@ -51,9 +51,7 @@ public class ServerUi {
                     }else if(ServerDictionary.readJsonFile(dictionaryFilename)){
                         serverSocket = new ServerSocket(portNumber);
                         if (ServerDictionary.dictionaryPOJP != null) {
-                            //System.out.println(ServerDictionary.dictionaryPOJP.getTitle() + " File Loaded(Version: "+ServerDictionary.dictionaryPOJP.getVersion()+") ....");
                             threadsPool = new MyThreadsPool(initPoolSize, maxPoolSize, workerAliveTime*1000);
-                            //System.out.println("Thread Pool Has Created Successfully!");
                         }
                         serverConnection = new ServerConnection(serverSocket,threadsPool);
                         serverConnection.start();
@@ -64,8 +62,8 @@ public class ServerUi {
                         initWorkerNumber.setEnabled(false);
                         maxWorkerNumber.setEnabled(false);
                         workerWaitingTime.setEnabled(false);
-                        JOptionPane.showMessageDialog(panelMain,"Server run successfully!" );
-                        System.out.println("Server run successfully!");
+                        JOptionPane.showMessageDialog(panelMain,"Server runs successfully!" );
+                        System.out.println("Server runs successfully!");
                     }else{
                         throw new FileNotFoundException();
                     }
@@ -96,7 +94,8 @@ public class ServerUi {
                         "Are you sure you want to stop the server and exit?", "Stop Server?",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-                       System.exit(0);
+                    System.out.println("The server has shut down!");
+                    System.exit(0);
                 }
             }
         });

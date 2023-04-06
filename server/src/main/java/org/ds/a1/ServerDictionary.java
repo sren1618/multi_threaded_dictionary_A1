@@ -16,7 +16,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Version 1.0
  */
 public class ServerDictionary {
-    //static String dictionaryJSONPath = "./server/src/main/resources/dictionary.json";
     static String dictionaryFilename;
     static DictionaryPOJP dictionaryPOJP = null;
 
